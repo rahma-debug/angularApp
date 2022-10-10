@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content>
+    <form>
+        <p>
+        <mat-form-field appearance="legacy">
+            <input matInput placeholder="Title" formControlName="title">
+          </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+        <mat-label>Author</mat-label>
+        <mat-select>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+    </mat-form-field>
+</p>
+    </form> 
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close >{{cancel}}</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>{{confirm}}</button>
+</div>

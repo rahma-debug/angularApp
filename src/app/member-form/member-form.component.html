@@ -1,0 +1,26 @@
+<div>
+  <h1>{{this.titleForm}}</h1>
+  <form [formGroup]="form"(ngSubmit)="onSub()" >
+    <p>
+       <mat-form-field appearance="legacy">
+         <input matInput placeholder="Cin" formControlName="cin">
+       </mat-form-field>
+     </p>
+     <p>
+       <mat-form-field appearance="legacy">
+         <input matInput placeholder="Name" formControlName="name">
+       </mat-form-field>
+     </p>
+     <p>
+       <mat-form-field appearance="legacy">
+         <input matInput placeholder="Cv" formControlName="cv">
+       </mat-form-field>
+     </p>
+     <p>
+       <mat-form-field appearance="legacy">
+          <input matInput placeholder="Type" formControlName="type">
+       </mat-form-field>
+     </p>
+     <div  fxLayout="row" fxLayoutAlign="end center" ><button mat-raised-button color="primary" > Submit</button></div>
+</form>
+</div>
