@@ -11,10 +11,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./affect-author.component.scss'],
 })
 export class AffectAuthorComponent implements OnInit {
+  title="Pick author"
+  cancel = 'cancel';
+  confirm = 'confirm';
+  selected!:string
   authors: Member[] | undefined;
-  favoriteAuthor: string ="";
   currentId: any;
-  globalArticle: any;
   constructor(
     private memberService: MemberService,
     private articleService: ArticlesService,
@@ -26,8 +28,10 @@ export class AffectAuthorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //get the id of article from url
     this.currentId = this.activatedRoute.snapshot.params.id;
-    console.log(this.currentId);
+    //console.log(this.currentId);
+    //get tab of authors 
     this.getAuthors();
   }
 
@@ -38,19 +42,16 @@ export class AffectAuthorComponent implements OnInit {
       );
     });
   }
-  onSub(): void {
-    
-    this.articleService
-      .getArticleById(this.currentId)
-      .then((selectedArticle: Article) => {
-        const objToSubmit = {...selectedArticle,author: this.favoriteAuthor ?? this.favoriteAuthor, };
-        this.articleService.saveAricle(objToSubmit).then(() => {
-          this.router.navigate(['/articles']);
-        });
-       console.log(selectedArticle);
-      });
-    
 
-   
+  affectAuthor(authorName:string)
+  {this.articleService
+    .getArticleById(this.currentId)
+    .then((selectedArticle: Article) => {
+      const objToSubmit = {...selectedArticle,author: authorName };
+      this.articleService.saveAricle(objToSubmit).then(() => {
+        this.router.navigate(['/articles']);
+      });
+    });
+
   }
 }

@@ -29,6 +29,11 @@ import { AffectAuthorComponent } from './affect-author/affect-author.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { ArticleFormComponent } from './articles/article-form/article-form.component';
 import {MatSelectModule} from '@angular/material/select';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import{FirebaseModule} from "./Firebase.module";
+import { LoginComponent } from './login/login.component';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +47,8 @@ import {MatSelectModule} from '@angular/material/select';
     ToolsComponent,
     EventsComponent,
     AffectAuthorComponent,
-    ArticleFormComponent
+    ArticleFormComponent,
+    LoginComponent
     
   ],
   imports: [
@@ -64,7 +70,11 @@ import {MatSelectModule} from '@angular/material/select';
     MatListModule,
     MatMenuModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    FlexLayoutModule,
+    MatDatepickerModule,
+    FirebaseModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

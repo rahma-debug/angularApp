@@ -1,11 +1,13 @@
-<label id="example-radio-group-label">Pick your favorite Author</label>
-<mat-radio-group
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="favoriteAuthor">
-  <mat-radio-button class="example-radio-button" *ngFor="let author of authors" [value]="author.name">
-    {{author.name}}
-  </mat-radio-button>
-</mat-radio-group>
-<div>Your favorite author is: {{favoriteAuthor}}</div>
-<button mat-raised-button color="primary"  (click)="onSub()">submit</button>  
+<div fxLayout="column" fxLayoutAlign="center center" >
+ <mat-form-field appearance="fill">
+  <mat-label>Select an author</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option *ngFor="let author of authors" [value]="author.name">{{
+      author.name
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="affectAuthor(this.selected)">
+  submit
+</button>
+</div>

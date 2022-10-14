@@ -1,16 +1,23 @@
+import { LoginComponent } from './login/login.component';
 import { AffectAuthorComponent } from './affect-author/affect-author.component';
 import { EventsComponent } from './events/events.component';
 import { ToolsComponent } from './tools/tools.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MemberFormComponent } from './member-form/member-form.component';
 import { MembersComponent } from './members/members.component';
 
 const routes: Routes = [
-  
+  {path:'',
+  pathMatch:'full',
+  redirectTo:'login',
+},
+  {path:'login',
+  pathMatch:'full',
+  component:LoginComponent,
+},
   {path:'members',
   pathMatch:'full',
   component:MembersComponent,
@@ -39,7 +46,7 @@ const routes: Routes = [
   pathMatch:'full',
   component:EventsComponent,},
   {path:'**',
-  redirectTo:"/",
+  redirectTo:'/',
 
 },
 

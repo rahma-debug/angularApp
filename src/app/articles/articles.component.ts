@@ -1,3 +1,4 @@
+import { AffectAuthorComponent } from './../affect-author/affect-author.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmedDialogComponent } from './../confirmed-dialog/confirmed-dialog.component';
 import { Article } from './../../modals/Article';
@@ -58,7 +59,9 @@ export class ArticlesComponent implements OnInit {
   {
        //open dialog
        const dialogRef = this.dialog.open(ArticleFormComponent, {
-        /* dimension du dialog */
+        data:{
+          idArt: id
+         }
       });
       //wait return user
       dialogRef.afterClosed().subscribe((result) => {
@@ -73,4 +76,14 @@ export class ArticlesComponent implements OnInit {
       });
   }
 
+ createArticle()
+ {
+ //open dialog
+ const dialogRef = this.dialog.open(ArticleFormComponent, {
+  data:{
+    idArt: null
+   }
+});
+
+ }
 }

@@ -1,11 +1,11 @@
 <br />
 <div fxLayout="row" fxLayoutAlign="end center">
   <button mat-raised-button color="primary">
-    <mat-icon>add</mat-icon>Create New
+    <mat-icon  (click)="createArticle()" >add</mat-icon>Create New
   </button>
 </div>
 <br />
-<br />
+
 <mat-form-field appearance="standard">
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
