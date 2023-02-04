@@ -1,0 +1,53 @@
+<!-- <div fxLayout="column" fxLayoutAlign="center center"  >
+    <form [formGroup]="form" >
+        <div fxLayout="row" fxLayoutAlign="space-around center" >
+      <p>
+         <mat-form-field appearance="legacy">
+           <input matInput placeholder="Cin" formControlName="cin">
+         </mat-form-field>
+       </p>
+       
+       <p>
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+      </p>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center" >
+       <p>
+         <mat-form-field appearance="legacy">
+           <input matInput placeholder="Nom" formControlName="name">
+         </mat-form-field>
+       </p>
+       
+       <p>
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="Prenom" formControlName="lastName">
+        </mat-form-field>
+      </p>
+    </div>
+       <p>
+         <mat-form-field appearance="legacy">
+           <input matInput placeholder="Cv" formControlName="cv">
+         </mat-form-field>
+       </p>
+      
+       <div  fxLayout="row" fxLayoutAlign="center center" ><button mat-raised-button color="Accent" > Cancel</button></div>
+  </form>
+  </div>
+  -->
+<div class="card"> 
+   
+    <img src=" ./assets/images/profileImg.jpg" alt="John" style="width:50%">
+    <h1>{{this.currentMember?.nom}} {{this.currentMember?.prenom}}</h1>
+    <p class="title">
+      {{ (this.currentMember?.grade ? this.currentMember?.grade: this.currentMember?.diplome ) | uppercase}}
+      </p>
+    <p>{{this.currentMember?.email}}</p>
+    <p  *ngFor="let elt of this.pubs" >
+
+     <li>Type: {{elt.type}}/ Titre: {{elt.titre}} </li>
+    </p>
+  
+    <p><button>Contact</button></p>
+  </div>

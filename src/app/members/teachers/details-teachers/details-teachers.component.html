@@ -1,0 +1,190 @@
+<mat-card class="card">
+    <mat-card-header>
+      <div class="image-cropper">
+        <img [src]="this.data.currentMember.photo" class="rounded" />
+  
+      </div>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <br>
+      <table class="example-full-width table1" cellspacing="0"><tr>
+        <td>
+          <mat-label class="example-full-width-left">
+            Full Name:&nbsp;
+          </mat-label>
+          {{this.data.currentMember.prenom}} {{this.data.currentMember.nom}}
+        </td>
+        <td> &nbsp;</td>
+        <td>
+          <mat-label class="example-full-width-right">
+            CIN:&nbsp;
+          </mat-label>
+          {{this.data.currentMember.cin}}
+        </td>
+      </tr>
+        <tr>
+          <td>
+            <mat-label class="example-full-width-left">
+              Birth Date:&nbsp;
+            </mat-label>
+            {{this.data.currentMember.date}}
+          </td>
+          <td> &nbsp;</td>
+          <td>
+            <mat-label class="example-full-width-right">
+              Email:&nbsp;
+            </mat-label>
+            {{this.data.currentMember.email}}
+          </td>
+        </tr>
+        <tr >
+          <td>
+            <mat-label class="example-full-width-left">
+              Grade:&nbsp;
+            </mat-label>
+            {{this.data.currentMember.grade}}
+          </td>
+          <td> &nbsp;</td>
+          <td>
+            <mat-label class="example-full-width-right">
+              Etablissement :&nbsp;
+            </mat-label>
+            {{this.data.currentMember.etablissement}}
+          </td>
+        </tr>
+      </table>
+      <hr style="margin-right: 15%;margin-left: 15%;" >
+      <mat-accordion style="margin-right: 15%;margin-left: 15%;" >
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false"
+                             style="margin-right: 15%;margin-left: 15%;">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="theme-1">
+              My Students({{students.length}})
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <table style="width: 100%" cellspacing="0">
+            <tr *ngFor="let student of students">
+              <td>
+                <mat-label class="example-full-width-left">
+                  CIN:&nbsp;
+                </mat-label>
+                {{student.cin}}
+              </td>
+              <td>
+                <mat-label class="example-full-width-left">
+                  Name:&nbsp;
+                </mat-label>
+                {{student.nom}} {{student.prenom}}
+              </td>
+              <td>
+                <mat-label class="example-full-width-right">
+                  Diplome:&nbsp;
+                </mat-label>
+                {{student.diplome}}
+              </td>
+            </tr>
+          </table>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion style="margin-right: 15%;margin-left: 15%;">
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false"
+                             style="margin-right: 15%;margin-left: 15%;">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="theme-1">
+              Events({{this.data.currentMember.events.length}})
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <table style="width: 100%" cellspacing="0">
+            <tr *ngFor="let event of this.data.currentMember.events">
+            <td>
+              <mat-label class="example-full-width-left">
+                Title:&nbsp;
+              </mat-label>
+              {{event.titre}}
+            </td>
+              <td>
+                <mat-label class="example-full-width-right">
+                  Date:&nbsp;
+                </mat-label>
+                {{event.date| date :'d MMMM y'}}
+              </td>
+            <td>
+              <mat-label class="example-full-width-right">
+                Location:&nbsp;
+              </mat-label>
+              {{event.lieu}}
+            </td>
+           
+          </tr>
+          </table>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion style="margin-right: 15%;margin-left: 15%;">
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false"
+                             style="margin-right: 15%;margin-left: 15%;">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="theme-1">
+              Articles({{this.data.currentMember.pubs.length}})
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <table style="width: 100%" cellspacing="0">
+            <tr *ngFor="let publication of this.data.currentMember.pubs">
+              <td>
+                <mat-label class="example-full-width-left">
+                  Title:&nbsp;
+                </mat-label>
+                {{publication.titre}}
+              </td>
+              <td>
+                <mat-label class="example-full-width-right">
+                  Date:&nbsp;
+                </mat-label>
+                {{publication.date| date :'d MMMM y'}}
+              </td>
+              <td>
+                <mat-label class="example-full-width-right">
+                  Link:&nbsp;
+                </mat-label>
+                {{publication.lien}}
+              </td>
+            </tr>
+          </table>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion style="margin-right: 15%;margin-left: 15%;">
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false"
+                             style="margin-right: 15%;margin-left: 15%;">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="theme-1">
+              Tools({{this.data.currentMember.tools.length}})
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <table style="width: 100%" cellspacing="0">
+            <tr *ngFor="let tool of this.data.currentMember.tools">
+              <td>
+                <mat-label class="example-full-width-left">
+                  Source:&nbsp;
+                </mat-label>
+                {{tool.source}}
+              </td>
+              <td>
+                <mat-label class="example-full-width-right">
+                  Date:&nbsp;
+                </mat-label>
+                {{tool.date| date :'d MMMM y'}}
+              </td>
+            
+            </tr>
+          </table>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="end center" style="margin: 3%">
+        <button mat-button [mat-dialog-close]="true"  color="warn">{{confirm}}</button>
+    </mat-card-actions>
+  </mat-card>

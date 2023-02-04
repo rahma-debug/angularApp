@@ -1,0 +1,59 @@
+<mat-card ><br />
+    <div fxLayout="row" fxLayoutAlign="end center">
+      <button mat-raised-button color="warn" routerLink="/events" >
+      </button>
+    </div>
+    <br />
+    <h1>Choise Organizers To Your Event </h1>
+    <mat-form-field appearance="standard">
+     
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input />
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+      <ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.nom }}</td>
+      </ng-container>
+      <ng-container matColumnDef="prenom">
+        <th mat-header-cell *matHeaderCellDef>Last Name </th>
+        <td mat-cell *matCellDef="let element">{{ element.prenom }}</td>
+      </ng-container>
+      <ng-container matColumnDef="diplome">
+        <th mat-header-cell *matHeaderCellDef>DIPLOME </th>
+        <td mat-cell *matCellDef="let element">{{element.diplome }}</td>
+      </ng-container>
+      <ng-container matColumnDef="cv">
+        <th mat-header-cell *matHeaderCellDef>CV</th>
+        <td mat-cell *matCellDef="let element">
+          <a href="{{ element.cv }}"> <mat-icon>picture_as_pdf</mat-icon></a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="dateInscription">
+        <th mat-header-cell *matHeaderCellDef>DATEINSCRIPTION </th>
+        <td mat-cell *matCellDef="let element">{{ element.dateInscription| date:'longDate'}}</td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>EMAIL</th>
+        <td mat-cell *matCellDef="let element">{{ element.email}}</td>
+      </ng-container>
+      <ng-container matColumnDef="icon">
+        <th mat-header-cell *matHeaderCellDef>ACTIONS</th>
+        <td mat-cell *matCellDef="let element">
+        
+            <button mat-raised-button
+            (click)="affecterOrgToEvent(element.id)">
+            <mat-icon>add_circle_outline</mat-icon>
+            </button>
+    
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table> 
+    </mat-card>

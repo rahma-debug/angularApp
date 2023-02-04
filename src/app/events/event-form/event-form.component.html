@@ -1,0 +1,35 @@
+<mat-card>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <h1>{{ this.titleForm }}</h1>
+    <form [formGroup]="form" (ngSubmit)="onSub()">
+      <p>
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="Titre" formControlName="titre" />
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="Lieu" formControlName="lieu" />
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="example-full-width" appearance="legacy">
+          <mat-label>Choose date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date" />
+          <mat-datepicker-toggle matIconSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </p>
+
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <button mat-raised-button color="warn" routerLink="/events">
+          <mat-icon>add</mat-icon>Back
+        </button>
+        <button mat-raised-button color="Accent">Submit</button>
+      </div>
+    </form>
+  </div>
+</mat-card>

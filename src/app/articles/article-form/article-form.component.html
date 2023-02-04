@@ -1,0 +1,42 @@
+<mat-card>
+<h1 mat-dialog-title>{{titleForm}}</h1>
+<div mat-dialog-content>
+    <form [formGroup]="form"(ngSubmit)="onSub()" >
+        <p>
+        <mat-form-field appearance="legacy">
+            <input matInput placeholder="Title" formControlName="titre">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="legacy">
+              <input matInput placeholder="type" formControlName="type">
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="legacy">
+                <input matInput placeholder="sourcePdf" formControlName="sourcePdf">
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="legacy">
+                  <input matInput placeholder="lien" formControlName="lien">
+                </mat-form-field>
+              </p>
+            <p>
+            <mat-form-field class="example-full-width" appearance="legacy">
+              <mat-label>Choose date </mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="date">
+              <mat-datepicker-toggle matIconSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+              </mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </p>
+
+    </form> 
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close >{{cancel}}</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>{{confirm}}</button>
+</div>
+</mat-card>

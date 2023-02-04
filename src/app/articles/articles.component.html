@@ -1,0 +1,44 @@
+<mat-card>
+<div fxLayout="row" fxLayoutAlign="end center">
+  <button mat-raised-button color="Accent"(click)="createArticle()">
+    <mat-icon>add</mat-icon>Create New
+  </button>
+</div>
+<br />
+<h1>Publications  List</h1>
+
+<mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+</mat-form-field>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>id</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>title</th>
+    <td mat-cell *matCellDef="let element">{{ element.titre }}</td>
+  </ng-container>
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef>TYPE</th>
+    <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+  </ng-container>
+  <ng-container matColumnDef="year">
+    <th mat-header-cell *matHeaderCellDef>year</th>
+    <td mat-cell *matCellDef="let element">{{element.date | date:'longDate'}}</td>
+  </ng-container>
+ 
+
+  <ng-container matColumnDef="icon">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button ><mat-icon (click)="editArticle(element.id)" > edit</mat-icon></button>
+      <button ><mat-icon (click)="deleteArticle(element.id)" >delete</mat-icon></button>
+      <button routerLink="{{element.id}}/affectAuthor" ><mat-icon>accessibility_new</mat-icon></button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+</mat-card>

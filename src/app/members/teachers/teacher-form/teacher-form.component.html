@@ -1,0 +1,76 @@
+<mat-card>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <h1>{{ this.titleForm }}</h1>
+      <form [formGroup]="form" (ngSubmit)="onSub()">
+        
+          <p>
+            <mat-form-field appearance="legacy">
+              <input matInput placeholder="First Name" formControlName="nom" />
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="legacy">
+              <input matInput placeholder="Last Name" formControlName="prenom" />
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="legacy">
+              <input matInput placeholder="Email" formControlName="email" />
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="legacy">
+              <input matInput placeholder="etablissement" formControlName="etablissement" />
+            </mat-form-field>
+          </p>
+   
+        
+          <p>
+              <mat-form-field appearance="legacy">
+                <input matInput placeholder="grade" formControlName="grade" />
+              </mat-form-field>
+
+            </p>
+  
+  <p>
+    
+    <mat-form-field appearance="legacy">
+      <input matInput placeholder="Cv" formControlName="cv" />
+    </mat-form-field>
+  </p>
+        
+          <p>
+            <mat-form-field appearance="legacy">
+              <input matInput placeholder="Cin" formControlName="cin" />
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="legacy">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                [type]="hide ? 'password' : 'text'"
+                formControlName="password"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+              </button>
+            </mat-form-field>
+          </p>
+  
+  
+  
+          <div fxLayout="row" fxLayoutAlign="space-around center" >
+          <button mat-raised-button color="warn"  routerLink="/members/teachers">Back</button>
+          <button mat-raised-button color="Accent">Submit</button>
+        </div>
+      </form>
+    </div>
+  </mat-card>
+  
